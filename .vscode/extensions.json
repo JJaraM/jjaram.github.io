@@ -1,0 +1,13 @@
+{
+	"recommendations": [
+		"asciidoctor.asciidoctor-vscode",
+		"dotjoshjohnson.xml",
+		"editorconfig.editorconfig",
+		"mkhl.shfmt",
+		"redhat.vscode-xml",
+		"redhat.vscode-yaml",
+		"tamasfe.even-better-toml",
+		"timonwong.shellcheck",
+		"yzhang.markdown-all-in-one"
+	]
+}
