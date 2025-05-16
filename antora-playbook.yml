@@ -10,7 +10,7 @@ content:
       branches: HEAD
 ui:
   bundle:
-    url: ./ui-bundle.zip
+#    url: ./ui-bundle.zip
     # See https://gitlab.com/antora/antora/-/issues/280 as well
     # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
