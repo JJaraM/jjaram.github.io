@@ -1,2 +1,1 @@
-* xref:subpage.adoc[Additional Page]
-* xref:splunk.adoc[]
+* xref:splunk/splunk.adoc[Splunk]
