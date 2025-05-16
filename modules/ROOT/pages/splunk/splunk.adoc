@@ -1,2 +1,4 @@
 = Splunk
 
+In the following section we will see how to make different stuff in
+splunk.
