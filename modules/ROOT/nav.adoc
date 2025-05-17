@@ -1,2 +1,2 @@
 * xref:splunk/splunk.adoc[Splunk]
-** xref:splunk/how_to/create-matrix.adoc.adoc[]
+** xref:splunk/how_to/create-matrix.adoc[]

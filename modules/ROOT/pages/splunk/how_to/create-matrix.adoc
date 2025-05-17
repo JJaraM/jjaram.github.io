@@ -1,1 +1,61 @@
-= How to create a matrix?
+= How to create a matrix per hour?
+
+[%linenums,splunk]
+----
+environment=<environment>
+AND index=<index>
+AND sourcetype=<sourcetype>
+| eval hour = strftime(_time, "%H")
+| eval day = strftime(_time, "%D")
+| stats count by hour, day
+| xyseries hour day count
+| transpose 0 header_field=day
+| appendcols [
+  search
+  (
+    environment=<environment>
+  )
+  | eval status = if((len(status) > 0), status, "*")
+  AND index=<index>
+  AND sourcetype=<sourcetype>
+  | eval hour = strftime(_time, "%H")
+  | eval day = strftime(_time, "%D")
+  | stats count(status) as total by  day
+]
+| table column 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 total
+| rename column as "Day",
+total as "Total",
+00 as "12am",
+01 as "1am",
+02 as "2am",
+03 as "3am",
+04 as "4am",
+05 as "5am",
+06 as "6am",
+07 as "7am",
+08 as "8am",
+09 as "9am",
+10 as "10am",
+11 as "11am",
+12 as "12pm",
+13 as "1pm",
+14 as "2pm",
+15 as "3pm",
+16 as "4pm",
+17 as "5pm",
+18 as "6pm",
+19 as "7pm",
+20 as "8pm",
+21 as "9pm",
+22 as "10pm",
+23 as "11pm"
+----
+
+The result will be similar to this:
+[%autowidth"]
+|===
+|Day |12am |1am |2am |3am |4am |5am |6am |7am |8am |9am |10am |11am |12pm |1pm |2pm |3pm |4pm |5pm |6pm |7pm |8pm |9pm |10pm |11pm | Total
+|2024/06/10 |12 |5 |8 |7 |3 |9 |2 |6 |4 |8 |1 |7 |5 |3 |6 |2 |8 |4 |7 |1 |9 |3 |5 |2|132
+|2024/06/11 |7 |3 |6 |2 |8 |4 |7 |1 |9 |3 |5 |2 |12 |5 |8 |7 |3 |9 |2 |6 |4 |8 |1 |7|139
+|2024/06/12 |5 |3 |9 |2 |6 |4 |8 |1 |7 |5 |3 |6 |2 |8 |4 |7 |1 |9 |3 |5 |2 |12 |5 |8|129
+|===
