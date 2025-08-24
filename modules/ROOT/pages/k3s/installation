@@ -1,1 +1,16 @@
+= Installation
 
+- Install alpine
+
+[%linenums,bash]
+----
+setup-alpine
+----
+
+- Install curl
+
+
+[%linenums,bash]
+----
+apk add curl
+----
