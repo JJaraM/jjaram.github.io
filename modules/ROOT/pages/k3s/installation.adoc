@@ -14,3 +14,11 @@ setup-alpine
 ----
 apk add curl
 ----
+
+
+- Install k3s
+
+[%linenums,bash]
+----
+curl -sfL https://get.k3s.io | sh -
+----
